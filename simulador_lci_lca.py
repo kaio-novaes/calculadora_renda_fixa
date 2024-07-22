@@ -3,9 +3,9 @@ import requests
 
 def obter_taxa_lcx():
     """
-        Obtém a taxa SELIC mais atualizada disponível pelo Banco Central do Brasil.
+        Obtém a taxa DI mais atualizada dispónivel pelo Banco Central do Brasil.
     """
-    url = 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json'
+    url = 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1178/dados/ultimos/1?formato=json'
 
     try:
         response = requests.get(url)
@@ -26,18 +26,17 @@ def obter_taxa_lcx():
     return None
 
 
-def calcular_rendimento_lcx(valor_investido, taxa_anual, meses):
+def calcular_rendimento_lcx(valor_investido, taxa_di, meses):
     """
         Calcula o rendimento de um investimento em LCI/LCA.
     """
-    taxa_mensal = taxa_anual / 12 / 100  # Convertendo a taxa anual para mensal.
-
-    rendimento_bruto = valor_investido
-
+    taxa_diaria = (1 + taxa_di / 100) ** (1 / 12) - 1 # Converte a taxa DI obtida para diária.
+    valor_final = valor_investido
+    
     for _ in range(meses):
-        rendimento_bruto += rendimento_bruto * taxa_mensal
+        valor_final *= (1 + taxa_diaria)
 
-    return rendimento_bruto
+    return valor_final
 
 
 def interacao_usuario():
