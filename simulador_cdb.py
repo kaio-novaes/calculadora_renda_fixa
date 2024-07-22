@@ -43,16 +43,16 @@ def calcular_aliquota_ir(meses):
         Calcula a alíquota de Imposto de Renda (IR) com base no prazo em meses.
     """
     if meses <= 6:
-        return 22.5 # 22,5%
+        return 22.5 # 22,5%.
     
     elif meses <= 12:
-        return 20 # 20%
+        return 20 # 20%.
     
     elif meses <= 24:
-        return 17.5 # 17,5%
+        return 17.5 # 17,5%.
     
     else:
-        return 15 # Mais que isso sempre terá aliquota de 15%5
+        return 15 # Mais que isso sempre terá aliquota de 15%.
 
 
 def interacao_usuario():
