@@ -38,21 +38,21 @@ def calcular_rendimento_cdb(valor_investido, taxa_di, meses):
     return valor_final
 
 
-def calcular_aliquota_ir(meses):
+def calcular_aliquota_ir(dias):
     """
-        Calcula a alíquota de Imposto de Renda (IR) com base no prazo em meses.
+        Calcula a alíquota de Imposto de Renda (IR) com base no prazo em dias.
     """
-    if meses <= 6:
-        return 22.5 # 22,5%.
+    if dias <= 180:
+        return 22.5  # 22,5% para até 180 dias.
     
-    elif meses <= 12:
-        return 20 # 20%.
+    elif dias <= 360:
+        return 20  # 20% para até 360 dias.
     
-    elif meses <= 24:
-        return 17.5 # 17,5%.
+    elif dias <= 720:
+        return 17.5  # 17,5% para até 720 dias.
     
     else:
-        return 15 # Mais que isso sempre terá aliquota de 15%.
+        return 15  # Mais que isso sempre terá alíquota de 15%.
 
 
 def interacao_usuario():
@@ -71,7 +71,7 @@ def interacao_usuario():
         if taxa_di is not None:
             rendimento_total = calcular_rendimento_cdb(valor_investido, taxa_di, meses)
             rendimento_bruto = rendimento_total - valor_investido
-            aliquota_ir = calcular_aliquota_ir(meses)
+            aliquota_ir = calcular_aliquota_ir(meses * 30.4166) # Converter meses em dias
             ir = rendimento_bruto * (aliquota_ir / 100)
 
             rendimento_liquido = valor_investido + rendimento_bruto - ir
