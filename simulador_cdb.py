@@ -3,7 +3,7 @@ import requests
 
 def obter_taxa_di():
     """
-        Obtém a taxa DI mais atualizada dispónivel pelo Banco Central do Brasil.
+    Obtém a taxa DI mais atualizada dispónivel pelo Banco Central do Brasil.
     """
     url = 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1178/dados/ultimos/1?formato=json'
     
@@ -27,7 +27,7 @@ def obter_taxa_di():
 
 def calcular_rendimento_cdb(valor_investido, taxa_di, meses):
     """
-        Calcula o redimento de um investimento em CDB.
+    Calcula o redimento de um investimento em CDB.
     """
     taxa_diaria = (1 + taxa_di / 100) ** (1 / 12) - 1 # Converte a taxa DI obtida para diária.
     valor_final = valor_investido
@@ -40,7 +40,7 @@ def calcular_rendimento_cdb(valor_investido, taxa_di, meses):
 
 def calcular_aliquota_ir(dias):
     """
-        Calcula a alíquota de Imposto de Renda (IR) com base no prazo em dias.
+    Calcula a alíquota de Imposto de Renda (IR) com base no prazo em dias.
     """
     if dias <= 180:
         return 22.5  # 22,5% para até 180 dias.
@@ -57,7 +57,7 @@ def calcular_aliquota_ir(dias):
 
 def interacao_usuario():
     """
-        Usário fornece as informação como: Valor de investimento e prazo.
+    Usário fornece as informação como: Valor de investimento e prazo.
     """
     try:
         valor_investido = float(input("Qual o valor inicial da aplicação: R$ "))
@@ -88,7 +88,6 @@ def interacao_usuario():
         print(f"Erro: {ve}")
     except Exception as e:
         print(f"Ocorreu um erro inesperado: {e}")
-
 
 if __name__ == "__main__":
     interacao_usuario()

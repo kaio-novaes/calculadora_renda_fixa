@@ -3,7 +3,7 @@ import requests
 
 def obter_taxa_poupanca():
     """
-        Obtém a taxa Popança mais atualizada disponível pelo Banco Central do Brasil.
+    Obtém a taxa Popança mais atualizada disponível pelo Banco Central do Brasil.
     """
     url = 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.195/dados/ultimos/1?formato=json'
 
@@ -25,7 +25,7 @@ def obter_taxa_poupanca():
 
 def calcular_rendimento_poupanca(valor_investido, taxa_mensal, meses):
     """
-        Calcula o rendimento de um investimento na Poupança.
+    Calcula o rendimento de um investimento na Poupança.
     """
     taxa_poupaca = taxa_mensal / 100
 
@@ -39,7 +39,7 @@ def calcular_rendimento_poupanca(valor_investido, taxa_mensal, meses):
 
 def interacao_usuario():
     """
-        Usuário fornece as informações como: Valor de investimento e prazo.
+    Usuário fornece as informações como: Valor de investimento e prazo.
     """
     try:
         valor_investido = float(input("Qual o valor inicial da aplicação: R$ "))
@@ -67,7 +67,6 @@ def interacao_usuario():
 
     except Exception as e:
         print(f"Ocorreu um erro inesperado: {e}")
-
 
 if __name__ == "__main__":
     interacao_usuario()

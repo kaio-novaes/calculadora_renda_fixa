@@ -3,7 +3,7 @@ import requests
 
 def obter_taxa_lcx():
     """
-        Obtém a taxa DI mais atualizada dispónivel pelo Banco Central do Brasil.
+    Obtém a taxa DI mais atualizada dispónivel pelo Banco Central do Brasil.
     """
     url = 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1178/dados/ultimos/1?formato=json'
 
@@ -28,7 +28,7 @@ def obter_taxa_lcx():
 
 def calcular_rendimento_lcx(valor_investido, taxa_di, meses):
     """
-        Calcula o rendimento de um investimento em LCI/LCA.
+    Calcula o rendimento de um investimento em LCI/LCA.
     """
     taxa_diaria = (1 + taxa_di / 100) ** (1 / 12) - 1 # Converte a taxa DI obtida para diária.
     valor_final = valor_investido
@@ -41,7 +41,7 @@ def calcular_rendimento_lcx(valor_investido, taxa_di, meses):
 
 def interacao_usuario():
     """
-        Usuário fornece as informações como: Valor de investimento e prazo.
+    Usuário fornece as informações como: Valor de investimento e prazo.
     """
     try:
         valor_investido = float(input("Qual o valor inicial da aplicação: R$ "))
@@ -70,6 +70,5 @@ def interacao_usuario():
     except Exception as e:
         print(f"Ocorreu um erro inesperado: {e}")
         
-
 if __name__ == "__main__":
     interacao_usuario()
