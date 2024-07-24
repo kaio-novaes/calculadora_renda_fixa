@@ -52,7 +52,7 @@ def calcular_aliquota_ir(dias):
         return 17.5  # 17,5% para até 720 dias.
     
     else:
-        return 15  # Mais que isso sempre terá alíquota de 15%.
+        return 15  # Mais que 720 dias, a alíquota de 15%.
 
 
 def interacao_usuario():
