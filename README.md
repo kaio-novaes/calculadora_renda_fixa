@@ -1,24 +1,42 @@
 # Simulador de Renda Fixa
 
 ## Investimentos Financeiros - Simulador de Rendimentos
-Calcula o rendimentos de investimentos em Renda Fixa mais populares no Brasil, utilizando dados atualizados disponíveis através da API do Banco Central do Brasil.
 
-## Funcionalidades:
-### Poupança:
+Este conjunto de scripts Python calcula o rendimento de diferentes tipos de investimentos com base nas informações fornecidas pelo usuário. Cada script é projetado para calcular o rendimento de um tipo específico de investimento, utilizando taxas fornecidas pelo Banco Central do Brasil.
 
-Calcula o rendimento de um investimento na Poupança com base na taxa de juros mais recente.
-Considera o valor inicial do investimento e o período em meses.
+### Funcionalidades:
 
-### CDB (Certificado de Depósito Bancário):
+#### Poupança:
 
-Calcula o rendimento de um investimento em CDB utilizando a taxa DI mais recente.
-Inclui o cálculo do Imposto de Renda (IR) de acordo com a tabela regressiva.
+Obtém a taxa de poupança mais recente.
+Calcula o rendimento bruto e líquido de um investimento em poupança.
 
-### LCI/LCA (Letras de Crédito Imobiliário e do Agronegócio): 
+#### CDB:
 
-Calcula o rendimento de um investimento em LCI/LCA com base na taxa DI mais recente.
-Não inclui Imposto de Renda, poís esse tipo de investimento é insento de (IR).
+Obtém a taxa DI mais recente.
+Calcula o rendimento bruto e líquido de um investimento em CDB, incluindo o cálculo do Imposto de Renda (IR) com base na alíquota aplicável.
 
-### Observações:
+#### LCI/LCA:
 
-Os cálculos consideram as taxas de juros mais recentes obtidas através da API pública do Banco Central do Brasil.
+Obtém a taxa DI mais recente.
+Calcula o rendimento bruto e líquido de um investimento em LCI/LCA.
+
+
+#### Bibliotecas: 
+
+* **requests** para requisições HTTP.
+
+#### Versão do Python:
+
+* Python 3.12.
+
+#### Como Usar:
+
+Forneça o valor inicial do investimento e o prazo em meses quando solicitado.
+O script exibirá o rendimento bruto, o imposto de renda (para CDB) e o valor líquido final.
+
+#### Metodologia de Cálculo:
+
+* **Taxas:** As taxas são obtidas via API do Banco Central do Brasil.
+* **Rendimento:** Calculado utilizando a fórmula de capitalização composta.
+* **Imposto de Renda (para CDB):** Calculado com base na alíquota progressiva de IR, dependendo do prazo do investimento.
