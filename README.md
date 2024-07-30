@@ -2,7 +2,7 @@
 
 ## Investimentos Financeiros - Simulador de Rendimentos
 
-Este conjunto de scripts Python calcula o rendimento de diferentes tipos de investimentos com base nas informações fornecidas pelo usuário. Cada script é projetado para calcular o rendimento de um tipo específico de investimento, utilizando taxas fornecidas pelo Banco Central do Brasil.
+Este conjunto de scripts Python calcula o rendimento de diferentes tipos de investimentos com base nas informações fornecidas pelo usuário. Cada script é projetado para calcular o rendimento de um tipo específico de investimento, utilizando `taxas` fornecidas pelo `Banco Central do Brasil`.
 
 ### Funcionalidades:
 
@@ -24,11 +24,11 @@ Calcula o rendimento bruto e líquido de um investimento em LCI/LCA.
 
 #### Bibliotecas: 
 
-* **requests:** Para requisições HTTP.
+* **`requests`:** Para requisições HTTP.
 
 #### Versão do Python:
 
-* Python 3.12.
+* `Python 3.12`.
 
 #### Como Usar:
 
