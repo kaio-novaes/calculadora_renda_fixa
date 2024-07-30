@@ -24,7 +24,7 @@ Calcula o rendimento bruto e líquido de um investimento em LCI/LCA.
 
 #### Bibliotecas: 
 
-* **requests** para requisições HTTP.
+* **requests:** Para requisições HTTP.
 
 #### Versão do Python:
 
