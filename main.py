@@ -45,27 +45,28 @@ def interacao_usuario():
 
         # CDB / RDB
         taxa_di = obter_taxa_di()
-        percentual_di_cdb = 100  # O percentual DI é geralmente 100 para CDBs
+        percentual_di_cdb = 100  # O percentual DI padrão de 100 para CDBs
         if taxa_di is not None:
             rendimento_bruto_cdb = calcular_rendimento_cdb(valor_investido, taxa_di * percentual_di_cdb / 100, dias) - valor_investido
-            ioef = calcular_iof(valor_investido, rendimento_bruto_cdb, dias)
+            iof = calcular_iof(valor_investido, rendimento_bruto_cdb, dias)
+            rendimento_bruto_cdb_ajustado = rendimento_bruto_cdb - iof  
             aliquota_ir = calcular_aliquota_ir(dias)
-            ir = rendimento_bruto_cdb * (aliquota_ir / 100)
-            rendimento_liquido_cdb = valor_investido + (rendimento_bruto_cdb - ir) - ioef
+            ir = rendimento_bruto_cdb_ajustado * (aliquota_ir / 100)
+            rendimento_liquido_cdb = valor_investido + (rendimento_bruto_cdb_ajustado - ir)
             
             print("\n** CDB / RDB **")
             print(f"Valor da Aplicação: R$ {valor_investido:.2f}")
             print(f"Rendimento Bruto: R$ {rendimento_bruto_cdb + valor_investido - valor_investido:.2f}")
-            if ioef > 0:
-                print(f"IOF: R$ {ioef:.2f}")
+            if iof > 0:
+                print(f"IOF: R$ {iof:.2f}")
             print(f"Imposto de Renda (IR) ({aliquota_ir}%): R$ {ir:.2f}")
             print(f"Valor Líquido: R$ {rendimento_liquido_cdb:.2f}")
         else:
             print("Não foi possível obter a taxa DI.")
 
         # LCI / LCA
-        taxa_lcx = obter_taxa_di()  # Assumindo que LCI/LCA usa a mesma taxa DI
-        percentual_di_lcx = 100
+        taxa_lcx = obter_taxa_di()  
+        percentual_di_lcx = 100  # O percentual DI padrão de 100 para LCI/LCA
         if taxa_lcx is not None:
             rendimento_bruto_lcx = calcular_rendimento_lcx(valor_investido, taxa_lcx * percentual_di_lcx / 100, dias) - valor_investido
             rendimento_liquido_lcx = valor_investido + rendimento_bruto_lcx

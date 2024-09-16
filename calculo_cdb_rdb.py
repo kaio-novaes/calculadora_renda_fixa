@@ -34,7 +34,7 @@ def calcular_iof(valor_investido, rendimento_bruto, dias):
     percentual_iof /= 100
     return rendimento_bruto * percentual_iof
 
-def calcular_aliquota_ir(dias):
+def calcular_aliquota_ir(dias): 
     """
     Calcula a alíquota de Imposto de Renda (IR) com base no prazo em dias.
     """
